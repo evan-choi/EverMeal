@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">EverMeal</string>
+    <string name="copyright">Copyright (c) devJY All RIght Reserved</string>
+    <string name="baseFont">fonts/JollyRaunchy.ttf</string>
+    <string name="facebook_app_id">154139478341059</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_title">EVER MEAL</string>
+    <string name="search_hint">학교 또는 음식점을 입력해주세요</string>
+
+    <string name="registering_message_ready">InstanceID 토큰 가져오기</string>
+    <string name="registering_message_generating">InstanceID 토큰 생성중...</string>
+    <string name="registering_message_complete">완료!</string>
+</resources>

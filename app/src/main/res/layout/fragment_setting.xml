@@ -1,0 +1,160 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.example.devel.evermeal.SettingFragment"
+             android:background="@color/def_bg">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="useAllergy"
+            android:summaryOff="알레르기 알림을 사용하지 않습니다"
+            android:summaryOn="알레르기 알림을 사용합니다"
+            android:title="알레르기 설정"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_1"
+            android:dependency="useAllergy"
+            android:title="난류"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_2"
+            android:dependency="useAllergy"
+            android:title="우유"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_3"
+            android:dependency="useAllergy"
+            android:title="메밀"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_4"
+            android:dependency="useAllergy"
+            android:title="땅콩"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_5"
+            android:dependency="useAllergy"
+            android:title="대두"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_6"
+            android:dependency="useAllergy"
+            android:title="밀"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_7"
+            android:dependency="useAllergy"
+            android:title="고등어"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_8"
+            android:dependency="useAllergy"
+            android:title="게"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_9"
+            android:dependency="useAllergy"
+            android:title="새우"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_10"
+            android:dependency="useAllergy"
+            android:title="돼지고기"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_11"
+            android:dependency="useAllergy"
+            android:title="복숭아"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_12"
+            android:dependency="useAllergy"
+            android:title="토마토"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_13"
+            android:dependency="useAllergy"
+            android:title="아황산류"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_14"
+            android:dependency="useAllergy"
+            android:title="호두"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_15"
+            android:dependency="useAllergy"
+            android:title="닭고기"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_16"
+            android:dependency="useAllergy"
+            android:title="쇠고기"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_17"
+            android:dependency="useAllergy"
+            android:title="오징어"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allergy_18"
+            android:dependency="useAllergy"
+            android:title="조개류"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</PreferenceScreen>

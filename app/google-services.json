@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "271990698674",
+    "project_id": "firebase-evermeal"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:271990698674:android:27c30d1b7c18342c",
+        "android_client_info": {
+          "package_name": "com.example.devel.evermeal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgyPWt7FNRnZkClScg0CkITv21Cw9itcg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
