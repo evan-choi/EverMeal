@@ -6,29 +6,25 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceManager;
-import android.util.Log;
 
 import com.example.devel.evermeal.Extend.IFragmentTitle;
 
 public class SettingFragment extends PreferenceFragmentCompat implements IFragmentTitle
 {
-    private SharedPreferences prefs;
     private OnFragmentInteractionListener mListener;
 
+    private SharedPreferences prefs;
     private String title;
 
     public SettingFragment()
     {
     }
 
-    public static SettingFragment newInstance(String title, String param1, String param2)
+    public static SettingFragment newInstance(String title)
     {
         SettingFragment fragment = new SettingFragment();
 
         fragment.setTitle(title);
-
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
 
         return fragment;
     }

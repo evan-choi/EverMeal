@@ -171,9 +171,9 @@ public class MainActivity extends AppExActivity
     private void InitViewPager()
     {
         final List<IFragmentTitle> fragments = new ArrayList<>();
-        fragments.add(FeedFragment.newInstance("급식", null, null));
-        fragments.add(ProviderFragment.newInstance("제공업체", null, null));
-        fragments.add(SettingFragment.newInstance("설정", null, null));
+        fragments.add(FeedFragment.newInstance("급식"));
+        fragments.add(ProviderFragment.newInstance("제공업체"));
+        fragments.add(SettingFragment.newInstance("설정"));
 
         FragmentPagerAdapter adapter = new FragmentPagerAdapter(this.getSupportFragmentManager())
         {
