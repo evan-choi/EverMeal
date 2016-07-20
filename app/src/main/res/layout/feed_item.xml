@@ -21,6 +21,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:paddingLeft="@dimen/feed_item_padding_left_right"
             android:paddingRight="@dimen/feed_item_padding_left_right" >
 
@@ -28,8 +29,19 @@
                 android:id="@+id/profilePic"
                 android:layout_width="@dimen/feed_item_profile_pic"
                 android:layout_height="@dimen/feed_item_profile_pic"
-                android:scaleType="fitCenter" >
+                android:scaleType="fitCenter"
+                android:visibility="gone">
             </com.android.volley.toolbox.NetworkImageView>
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:id="@+id/profileView"
+                      android:layout_width="@dimen/feed_item_profile_pic"
+                      android:layout_height="@dimen/feed_item_profile_pic"
+                      android:background="@drawable/circle"
+                      android:gravity="center"
+                      android:scaleType="fitCenter"
+                      android:textColor="#FFFFFF"
+                      android:textSize="18dp"
+                      android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -63,7 +75,8 @@
             android:paddingBottom="5dp"
             android:paddingLeft="@dimen/feed_item_status_pad_left_right"
             android:paddingRight="@dimen/feed_item_status_pad_left_right"
-            android:paddingTop="@dimen/feed_item_status_pad_top" />
+            android:paddingTop="@dimen/feed_item_status_pad_top"
+            android:textSize="16dp"/>
 
         <TextView
             android:id="@+id/txtUrl"
@@ -83,6 +96,34 @@
             android:background="@color/white"
             android:scaleType="fitXY"
             android:visibility="visible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp">
+
+            <Button
+                android:id="@+id/btnRate"
+                android:background="@drawable/button_selector"
+                android:textColor="#595959"
+                android:text="별점"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnReview"
+                android:background="@drawable/button_selector"
+                android:textColor="#595959"
+                android:text="리뷰"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

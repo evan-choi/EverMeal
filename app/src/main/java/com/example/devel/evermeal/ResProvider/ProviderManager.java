@@ -101,4 +101,15 @@ public class ProviderManager
 
         return false;
     }
+
+    public static ProviderInfo ProviderFromToken(String token)
+    {
+        for (ProviderInfo pi : Items)
+        {
+            if (pi.Token.contentEquals(token))
+                return pi;
+        }
+
+        return null;
+    }
 }

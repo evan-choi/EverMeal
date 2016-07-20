@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.android.volley.toolbox.NetworkImageView;
 import com.example.devel.evermeal.Widget.listviewfeed.FeedImageView;
 import com.example.devel.evermeal.Widget.listviewfeed.adapter.FeedListAdapter;
+import com.example.devel.evermeal.Widget.listviewfeed.adapter.FeedViewHolder;
 import com.example.devel.evermeal.Widget.listviewfeed.data.FeedItem;
 
 public class FeedActivity extends AppCompatActivity
@@ -25,26 +26,27 @@ public class FeedActivity extends AppCompatActivity
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-
         // 피드 설정
-        TextView name = (TextView) findViewById(R.id.name);
-        TextView timestamp = (TextView) findViewById(R.id.timestamp);
-        TextView statusMsg = (TextView) findViewById(R.id.txtStatusMsg);
-        TextView url = (TextView) findViewById(R.id.txtUrl);
-        NetworkImageView profilePic = (NetworkImageView) findViewById(R.id.profilePic);
-        FeedImageView feedImageView = (FeedImageView) findViewById(R.id.feedImage1);
+        FeedViewHolder viewHolder = new FeedViewHolder();
+        viewHolder.name = (TextView) findViewById(R.id.name);
+        viewHolder.timestamp = (TextView) findViewById(R.id.timestamp);
+        viewHolder.statusMsg = (TextView) findViewById(R.id.txtStatusMsg);
+        viewHolder.url = (TextView) findViewById(R.id.txtUrl);
+        viewHolder.profilePic = (NetworkImageView) findViewById(R.id.profilePic);
+        viewHolder.feedImageView = (FeedImageView) findViewById(R.id.feedImage1);
 
         Intent intent = getIntent();
 
         FeedItem item = new FeedItem();
+        /*
         item.setProfilePic(intent.getStringExtra("profilePic"));
         item.setName(intent.getStringExtra("name"));
         item.setTimeStamp(intent.getStringExtra("timestamp"));
         item.setStatus(intent.getStringExtra("txtStatusMsg"));
         item.setUrl(intent.getStringExtra("txtUrl"));
         item.setImge(intent.getStringExtra("feedImage1"));
-
-        FeedListAdapter.InitFeedLayout(item, name, timestamp, statusMsg, url, profilePic, feedImageView);
+        */
+        FeedListAdapter.InitFeedLayout(item, viewHolder);
     }
 
     @Override

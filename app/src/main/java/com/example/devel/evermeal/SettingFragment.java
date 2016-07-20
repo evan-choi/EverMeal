@@ -6,14 +6,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceFragmentCompat;
 import android.support.v7.preference.PreferenceManager;
+import android.util.Log;
 
+import com.example.devel.evermeal.Auth.UserManager;
 import com.example.devel.evermeal.Extend.IFragmentTitle;
 
 public class SettingFragment extends PreferenceFragmentCompat implements IFragmentTitle
 {
     private OnFragmentInteractionListener mListener;
 
-    private SharedPreferences prefs;
+    private static SharedPreferences prefs;
     private String title;
 
     public SettingFragment()
@@ -47,11 +49,11 @@ public class SettingFragment extends PreferenceFragmentCompat implements IFragme
         prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
     }
 
-    public boolean getAllergy(int i)
+    public static boolean getAllergy(Context context, int i)
     {
         if (i >= 1 && i <= 18)
         {
-            return prefs.getBoolean("allergy_" + i, false);
+            return PreferenceManager.getDefaultSharedPreferences(context).getBoolean("allergy_" + i, false);
         }
 
         return false;

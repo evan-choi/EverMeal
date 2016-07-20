@@ -300,7 +300,7 @@ public class ProviderFragment extends FragmentEx
             if (q != null)
             {
                 Log.i("Register", "step 2");
-                String url = "https://evermeal.herokuapp.com/api/provider";
+                String url = "https://evermeal.herokuapp.com/provider";
 
                 client = new DefaultHttpClient();
                 client.getParams().setParameter("http.protocol.expect-continue", false);

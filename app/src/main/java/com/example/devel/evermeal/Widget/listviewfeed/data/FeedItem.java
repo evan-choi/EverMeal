@@ -1,77 +1,99 @@
 package com.example.devel.evermeal.Widget.listviewfeed.data;
 
 public class FeedItem {
-	private int id;
-	private String name, status, image, profilePic, timeStamp, url;
+	private int aid, type;
+	private String content, dependency, image_url, upload_date, uploader, name;
+	private Boolean textCenter;
 
 	public FeedItem() {
 	}
 
-	public FeedItem(int id, String name, String image, String status,
-			String profilePic, String timeStamp, String url) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.image = image;
-		this.status = status;
-		this.profilePic = profilePic;
-		this.timeStamp = timeStamp;
-		this.url = url;
+	public int getAid() {
+		return aid;
+	}
+	public void setAid(int id) {
+		this.aid = id;
 	}
 
-	public int getId() {
-		return id;
+
+	public String getContent()
+	{
+		return content;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setContent(String content)
+	{
+		this.content = content;
 	}
 
-	public String getName() {
+	public String getDependency()
+	{
+		return dependency;
+	}
+
+	public void setDependency(String dependency)
+	{
+		this.dependency = dependency;
+	}
+
+	public String getImage_url()
+	{
+		return image_url;
+	}
+
+	public void setImage_url(String image_url)
+	{
+		this.image_url = image_url;
+	}
+
+	public String getUpload_date()
+	{
+		return upload_date;
+	}
+
+	public void setUpload_date(String upload_date)
+	{
+		this.upload_date = upload_date;
+	}
+
+	public String getUploader()
+	{
+		return uploader;
+	}
+
+	public void setUploader(String uploader)
+	{
+		this.uploader = uploader;
+	}
+
+	public int getType()
+	{
+		return type;
+	}
+
+	public void setType(int type)
+	{
+		this.type = type;
+	}
+
+
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public String getImge() {
-		return image;
+	public Boolean getTextCenter()
+	{
+		return textCenter;
 	}
 
-	public void setImge(String image) {
-		this.image = image;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(String profilePic) {
-		this.profilePic = profilePic;
-	}
-
-	public String getTimeStamp() {
-		return timeStamp;
-	}
-
-	public void setTimeStamp(String timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
+	public void setTextCenter(Boolean textCenter)
+	{
+		this.textCenter = textCenter;
 	}
 }

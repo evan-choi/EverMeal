@@ -16,6 +16,11 @@ public class PrefHolder
 
     private boolean IsTransaction;
 
+    public SharedPreferences getPref()
+    {
+        return pref;
+    }
+
     public PrefHolder(Context parent)
     {
         this.context = parent;

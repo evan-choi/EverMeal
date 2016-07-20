@@ -1,25 +1,24 @@
 package com.example.devel.evermeal;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v14.preference.MultiSelectListPreference;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.devel.evermeal.Auth.UserManager;
 import com.example.devel.evermeal.Extend.AppExActivity;
-import com.example.devel.evermeal.Extend.FragmentEx;
 import com.example.devel.evermeal.Extend.IFragmentTitle;
 import com.example.devel.evermeal.ResProvider.ProviderManager;
 import com.example.devel.evermeal.Utils.PrefHolder;
@@ -114,7 +113,7 @@ public class MainActivity extends AppExActivity
 
     public void getInstanceIdToken()
     {
-        if (checkPlayServices()) {
+        if (checkPlayServices() && GcmManager.getToken().contentEquals("-1")) {
             Intent intent = new Intent(this, RegistrationIntentService.class);
             startService(intent);
         }
@@ -123,8 +122,6 @@ public class MainActivity extends AppExActivity
 
     public void registBroadcastReceiver()
     {
-        final MainActivity activity = this;
-
         mRegistrationBroadcastReceiver = new BroadcastReceiver()
         {
             @Override
@@ -142,6 +139,11 @@ public class MainActivity extends AppExActivity
                 {
                     String token = intent.getStringExtra("token");
 
+                    if (UserManager.HasUserData() && !GcmManager.getToken().contentEquals(token))
+                    {
+                        GcmManager.setToken(token);
+                        GcmManager.register();
+                    }
                 }
 
             }
@@ -151,6 +153,7 @@ public class MainActivity extends AppExActivity
     private boolean checkPlayServices()
     {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+
         if (resultCode != ConnectionResult.SUCCESS)
         {
             if (GooglePlayServicesUtil.isUserRecoverableError(resultCode))
@@ -160,7 +163,6 @@ public class MainActivity extends AppExActivity
             }
             else
             {
-                //Log.i(TAG, "This device is not supported.");
                 finish();
             }
             return false;
@@ -198,9 +200,36 @@ public class MainActivity extends AppExActivity
 
         ViewPager pager = (ViewPager) findViewById(R.id.main_viewpager);
         SmartTabLayout tab = (SmartTabLayout) findViewById(R.id.main_viewpagertab);
+        final LayoutInflater inflater = getLayoutInflater();
 
-        assert pager != null;
         assert tab != null;
+        assert pager != null;
+
+        tab.setCustomTabView(new SmartTabLayout.TabProvider()
+        {
+            @Override
+            public View createTabView(ViewGroup container, int position, PagerAdapter adapter)
+            {
+                ImageView icon = (ImageView)inflater.inflate(R.layout.custom_tab_icon, container, false);
+
+                switch (position)
+                {
+                    case 0:
+                        icon.setImageDrawable(getResources().getDrawable(R.drawable.res_icon));
+                        break;
+
+                    case 1:
+                        icon.setImageDrawable(getResources().getDrawable(R.drawable.search_icon));
+                        break;
+
+                    case 2:
+                        icon.setImageDrawable(getResources().getDrawable(R.drawable.set_icon));
+                        break;
+                }
+
+                return icon;
+            }
+        });
 
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener()
         {
