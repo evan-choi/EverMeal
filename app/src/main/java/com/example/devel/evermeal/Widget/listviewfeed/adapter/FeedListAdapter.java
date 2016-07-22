@@ -1,18 +1,9 @@
 package com.example.devel.evermeal.Widget.listviewfeed.adapter;
 
-import com.example.devel.evermeal.Extend.FeedOnClickListener;
-import com.example.devel.evermeal.Widget.listviewfeed.FeedImageView;
-import com.example.devel.evermeal.R;
-import com.example.devel.evermeal.Widget.listviewfeed.app.AppController;
-import com.example.devel.evermeal.Widget.listviewfeed.data.FeedItem;
-
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.text.Html;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +15,16 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-import com.sackcentury.shinebuttonlib.ShineButton;
+import com.example.devel.evermeal.Extend.FeedOnClickListener;
+import com.example.devel.evermeal.R;
+import com.example.devel.evermeal.Widget.listviewfeed.FeedImageView;
+import com.example.devel.evermeal.Widget.listviewfeed.app.AppController;
+import com.example.devel.evermeal.Widget.listviewfeed.data.FeedItem;
+import com.example.devel.evermeal.Widget.listviewfeed.data.FeedItemValidated;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class FeedListAdapter extends BaseAdapter
 {
@@ -63,7 +63,6 @@ public class FeedListAdapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent)
     {
-
         if (inflater == null)
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -97,20 +96,44 @@ public class FeedListAdapter extends BaseAdapter
         }
 
         FeedItem item = feedItems.get(position);
+        item.setViewHolder(viewHolder);
+        item.setFeedItemValidatedListener(itemValidated);
 
-        if (viewHolder.btnReview.getTag() == null)
-        {
-            viewHolder.btnReview.setTag(item);
-            viewHolder.btnRate.setTag(item);
+        viewHolder.btnReview.setTag(item);
+        viewHolder.btnRate.setTag(item);
 
-            viewHolder.btnRate.setOnClickListener(btnRate_Click);
-            viewHolder.btnReview.setOnClickListener(btnReview_Click);
-        }
+        viewHolder.btnRate.setOnClickListener(btnRate_Click);
+        viewHolder.btnReview.setOnClickListener(btnReview_Click);
 
         InitFeedLayout(item, viewHolder);
 
         return convertView;
     }
+
+    private FeedItemValidated itemValidated = new FeedItemValidated()
+    {
+        @Override
+        public void onValidated(FeedItem item, String... args)
+        {
+            FeedViewHolder viewHolder = item.getViewHolder();
+
+            if (viewHolder != null)
+            {
+                for (String e : args)
+                {
+                    switch (e)
+                    {
+                        case "rate":
+                            if (viewHolder.btnRate != null)
+                            {
+                                viewHolder.btnRate.setText("별점(" + item.getRate() + ")");
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    };
 
     private FeedOnClickListener btnRate_Click = new FeedOnClickListener()
     {
@@ -158,10 +181,17 @@ public class FeedListAdapter extends BaseAdapter
 
         viewHolder.name.setText(item.getName());
 
-        CharSequence timeAgo = DateUtils.getRelativeTimeSpanString(
-                Long.parseLong(item.getUpload_date()),
-                System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
-        viewHolder.timestamp.setText(timeAgo);
+        Date d = new Date(1970, 1, 1);
+        d.setTime(Long.parseLong(item.getUpload_date()) * 1000);
+        String dstr = new SimpleDateFormat("yyyy년 MM월 dd일").format(d);
+
+        viewHolder.timestamp.setText(dstr);
+
+        if (viewHolder.btnRate != null)
+        {
+            Log.v("btn", viewHolder.btnRate.getText().toString());
+            viewHolder.btnRate.setText("별점(" + item.getRate() + ")");
+        }
 
         if (!TextUtils.isEmpty(item.getContent()))
         {
@@ -193,6 +223,7 @@ public class FeedListAdapter extends BaseAdapter
         {
             viewHolder.url.setVisibility(View.GONE);
         }
+
 /*
         profilePic.setImageUrl(item.getProfilePic(), imageLoader);
 

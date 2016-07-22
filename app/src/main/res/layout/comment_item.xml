@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:background="#ffffff"
+              android:paddingTop="5dp"
+              android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="timestamp"
+        android:textColor="@color/timestamp"
+        android:textSize="10dp"/>
+
+    <TextView android:id="@+id/tvText"
+              android:text="content"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="10dp"
+              android:gravity="center_vertical"
+              android:textSize="16dp"
+              android:textColor="#333333"/>
+
+</LinearLayout>

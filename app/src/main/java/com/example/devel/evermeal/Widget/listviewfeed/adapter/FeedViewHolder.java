@@ -1,6 +1,7 @@
 package com.example.devel.evermeal.Widget.listviewfeed.adapter;
 
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
@@ -20,4 +21,5 @@ public class FeedViewHolder
     public FeedImageView feedImageView;
     public Button btnRate;
     public Button btnReview;
+    public ListView commentList;
 }

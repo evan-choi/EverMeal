@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.PopupWindow;
 
 import com.example.devel.evermeal.R;
+import com.example.devel.evermeal.Widget.listviewfeed.data.FeedItem;
 import com.sackcentury.shinebuttonlib.ShineButton;
 
 /**
@@ -20,7 +21,9 @@ public class RatePopupManager
     private static ShineButton[] btns = new ShineButton[5];
     private static boolean isAnimating = false;
 
-    public static PopupWindow getInstance(Context context)
+    public static int Rate = 0;
+
+    public static PopupWindow getInstance(Context context, final OnCloseListener listener)
     {
         popup = new PopupWindow(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -33,6 +36,15 @@ public class RatePopupManager
         popup.setFocusable(true);
         popup.setOutsideTouchable(true);
         popup.setBackgroundDrawable(new BitmapDrawable());
+
+        popup.setOnDismissListener(new PopupWindow.OnDismissListener()
+        {
+            @Override
+            public void onDismiss()
+            {
+                listener.onClose(Rate);
+            }
+        });
 
         InitRateAnimation();
 
@@ -73,6 +85,7 @@ public class RatePopupManager
 
     private static void Animate(int idx)
     {
+        Rate = idx + 1;
         isAnimating = true;
 
         btns[idx].setCancel();

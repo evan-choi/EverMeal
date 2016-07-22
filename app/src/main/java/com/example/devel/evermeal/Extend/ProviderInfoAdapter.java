@@ -33,11 +33,14 @@ public class ProviderInfoAdapter extends ArrayAdapter<ProviderInfo>
         convertView = inflater.inflate(R.layout.provider_reg_item, parent, false);
 
         TextView tv = (TextView) convertView.findViewById(R.id.tvText);
-        tv.setText(item.Name);
 
         TextView tv_icon = (TextView) convertView.findViewById(R.id.tvIcon);
         if (item.Name != null && item.Name.length() > 0)
+        {
             tv_icon.setText(item.Name.substring(0, 1));
+            tv.setText(item.Name);
+        }
+
 
         return convertView;
     }
