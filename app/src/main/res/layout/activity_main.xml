@@ -16,7 +16,7 @@
         android:background="@color/colorBase"
         android:text="">
 
-        <com.example.devel.evermeal.Extend.TextViewEx
+        <com.devjy.devel.evermeal.Extend.TextViewEx
             android:id="@+id/title"
             app:font="@string/baseFont"
             android:text="@string/main_title"

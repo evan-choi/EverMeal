@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical"
-    tools:context="com.example.devel.evermeal.FeedActivity">
+    tools:context="com.devjy.devel.evermeal.FeedActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,7 +18,7 @@
         android:text=""
         app:titleTextColor="@android:color/white">
 
-        <com.example.devel.evermeal.Extend.TextViewEx
+        <com.devjy.devel.evermeal.Extend.TextViewEx
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,7 +88,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.example.devel.evermeal.Extend.RichTextView
+        <com.devjy.devel.evermeal.Extend.RichTextView
             android:id="@+id/txtStatusMsg"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -109,7 +109,7 @@
             android:text="http://www.naver.com"
             android:textColorLink="@color/link"/>
 
-        <com.example.devel.evermeal.Widget.listviewfeed.FeedImageView
+        <com.devjy.devel.evermeal.Widget.listviewfeed.FeedImageView
             android:id="@+id/feedImage1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

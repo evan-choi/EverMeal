@@ -6,8 +6,8 @@ android {
     buildToolsVersion "24.0.0"
 
     defaultConfig {
-        applicationId "com.example.devel.evermeal"
-        minSdkVersion 21
+        applicationId "com.devjy.devel.evermeal"
+        minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
